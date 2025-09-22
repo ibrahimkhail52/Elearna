@@ -42,33 +42,42 @@ function InstructorInfo() {
   const current = instructors[currentIndex];
 
   return (
-    <div>
-      <div className="bg-[#EFF6F8] h-[37rem] text-center">
-        <div
-          className={`w-[74rem] relative left-[13rem] top-40 transition-opacity duration-500 ${
-            fade ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <img src={icon} alt="" className="relative left-[31rem] bottom-10" />
-          <p className="text-2xl ">{current.text}</p>
-          <h1 className="text-2xl mt-10">{current.name}</h1>
-          <span className="leading-10 text-gray-400">{current.title}</span>
+    <div className="bg-[#EFF6F8] py-16 px-4 sm:px-8 md:px-12 lg:px-20 flex items-center justify-center">
+      <div
+        className={`max-w-5xl w-full text-center transition-opacity duration-500 ${
+          fade ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        {/* Icon */}
+        <img src={icon} alt="" className="mx-auto mb-6 w-10 sm:w-12 md:w-14" />
 
-          {/* Arrows */}
-          <div className="flex gap-6 justify-center mt-10">
-            <button
-              onClick={() => changeSlide("prev")}
-              className="bg-white p-3 rounded-full shadow hover:bg-gray-100"
-            >
-              <FaChevronLeft size={20} />
-            </button>
-            <button
-              onClick={() => changeSlide("next")}
-              className="bg-white p-3 rounded-full shadow hover:bg-gray-100"
-            >
-              <FaChevronRight size={20} />
-            </button>
-          </div>
+        {/* Quote */}
+        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-700">
+          {current.text}
+        </p>
+
+        {/* Name & Title */}
+        <h1 className="text-xl sm:text-2xl font-semibold mt-8 text-gray-900">
+          {current.name}
+        </h1>
+        <span className="block mt-2 text-gray-500 text-sm sm:text-base">
+          {current.title}
+        </span>
+
+        {/* Arrows */}
+        <div className="flex gap-6 justify-center mt-10">
+          <button
+            onClick={() => changeSlide("prev")}
+            className="bg-white p-3 rounded-full shadow hover:bg-gray-100 transition"
+          >
+            <FaChevronLeft size={20} />
+          </button>
+          <button
+            onClick={() => changeSlide("next")}
+            className="bg-white p-3 rounded-full shadow hover:bg-gray-100 transition"
+          >
+            <FaChevronRight size={20} />
+          </button>
         </div>
       </div>
     </div>
